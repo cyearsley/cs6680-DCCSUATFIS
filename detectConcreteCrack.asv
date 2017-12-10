@@ -1,0 +1,13 @@
+function [ filteredIm ] = detectConcreteCrack( origIm, regionThresh )
+    % This function applies the improved adaptive thresholding technique in
+    %   along with other methods to detect cracks in concrete strcutures.
+
+    % Calculate histogram and get probability density function
+    [numPixels, grayLevels] = imhist(origIm);
+    probabilityFunction = numPixels / numel(origIm);
+    probGrayLevel = find(probabilityFunction == max(probabilityFunction));
+    
+    [rowSize,co
+    
+end
+

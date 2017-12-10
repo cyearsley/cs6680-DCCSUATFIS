@@ -12,7 +12,8 @@ function [ filteredIm ] = applyImprovedAdaptiveThresh( origIm, thresh )
     end
     
     filteredIm = addImageBorder(origIm,2);
-    [rowSize,colSize] = size(origIm);
+    origIm = filteredIm;
+    [rowSize,colSize] = size(filteredIm);
     
     % using a 5x5 region, iterate over the image and find the edges...
     for ii = 3:rowSize-2
