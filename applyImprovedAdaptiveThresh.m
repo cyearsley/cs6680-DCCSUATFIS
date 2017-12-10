@@ -45,6 +45,6 @@ function [ filteredIm ] = applyImprovedAdaptiveThresh( origIm, thresh )
     filteredIm = imopen(filteredIm,ones(2));
     filteredIm = bwmorph(filteredIm, 'thin');
     filteredIm = bwmorph(filteredIm, 'clean');
-    %filteredIm = bwareaopen(filteredIm, 50);
+    filteredIm = bwareaopen(filteredIm, 50);
 end
 
