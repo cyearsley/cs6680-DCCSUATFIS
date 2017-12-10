@@ -2,6 +2,10 @@ function [ filteredIm ] = detectConcreteCrackRegion( origIm, regionThresh )
     % This function applies the improved adaptive thresholding technique in
     %   along with other methods to detect cracks in concrete strcutures.
     
+    %@param origIm - the original concrete image
+    %@param regionThresh - the threshold for region sensitivity
+    %@return filteredIm - a logical representation of concrete regions
+    
     % if needed, convert image to grayscale
     if numel(size(origIm)) > 2
         origIm = rgb2gray(origIm);
@@ -27,6 +31,9 @@ function [ filteredIm ] = detectConcreteCrackRegion( origIm, regionThresh )
     end
 
     filteredIm = origIm;
+    
+    % perform an open operation (erode then dilate) and a dilation
+    % operation
     filteredIm = imopen(filteredIm,strel('square',4));
     filteredIm = imdilate(filteredIm,strel('square',50));
     
