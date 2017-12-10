@@ -14,7 +14,15 @@ function [ filteredIm ] = applyImprovedAdaptiveThresh( origIm, thresh )
         for jj = 3:colSize-2
             if origIm(ii,jj) >= thresh
                 imRegion = origIm(ii-2:ii+2,jj-2:jj+2);
-                if min(imRegion(:)) < thresh
+                capThreshCount = 0;
+                
+                for regionIndex =  1:numel(imRegion)
+                    if imRegion(regionIndex) < thresh
+                       capThreshCount = capThreshCount + 1; 
+                    end
+                end
+                
+                if abs(capThreshCount - numel(imRegion)) < numel(imRegion)
                     filteredIm(ii,jj) = 255;
                 else
                     filteredIm(ii,jj) = 0;
