@@ -1,4 +1,4 @@
-function [ filteredIm ] = applyAdaptiveThresh( origIm, thresh )
+function [ filteredIm ] = applyOriginalAdaptiveThresh( origIm, thresh )
     %This function applies the adaptive threshholding technique
     %   described in the research paper provided (Research Paper.pdf)
 
@@ -68,5 +68,5 @@ function [ filteredIm ] = applyAdaptiveThresh( origIm, thresh )
         end
     end
 
+    filteredIm = bwmorph(filteredIm, 'thin');
 end
-
