@@ -2,6 +2,7 @@ exampleIm1 = imread('ConcreteCrackImages/DSCN1351.JPG');
 exampleIm2 = imread('ConcreteCrackImages/DSCN1352.JPG');
 exampleIm3 = imread('ConcreteCrackImages/DSCN1319.JPG');
 exampleIm4 = imread('ConcreteCrackImages/DSCN1318.JPG');
+exampleIm5 = imread('ConcreteCrackImages/DSCN1372.JPG');
 riceIm = imread('Rice.jpg');
 
 origRice = applyOriginalAdaptiveThresh(riceIm, 100);
@@ -21,7 +22,8 @@ title('Canny Edge Detection');
 pause;
 
 newConcrete = applyImprovedAdaptiveThresh(exampleIm1, 100);
-cannyConcrete = edge(rgb2gray(exampleIm1),'Canny', 0.3);
+%cannyConcrete = edge(rgb2gray(exampleIm1),'Canny', 0.3);
+cannyConcrete = applyOriginalAdaptiveThresh(exampleIm1, 100);
 
 figure('Name', 'Concrete Comparison 1');
 subplot(1,2,1), imshow(newConcrete);

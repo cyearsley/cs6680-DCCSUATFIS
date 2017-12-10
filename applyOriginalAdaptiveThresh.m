@@ -1,6 +1,10 @@
 function [ filteredIm ] = applyOriginalAdaptiveThresh( origIm, thresh )
     %This function applies the adaptive threshholding technique
     %   described in the research paper provided (Research Paper.pdf)
+    
+    %@param origIm - the original grayscale OR rgb image
+    %@param thresh - the threshold used in the image
+    %@return filteredIm - the filtered image
 
     % if needed, convert image to grayscale
     if numel(size(origIm)) > 2
