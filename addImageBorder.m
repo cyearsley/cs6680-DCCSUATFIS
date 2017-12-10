@@ -9,8 +9,7 @@ function [ borderedIm ] = addImageBorder( origIm, borderSize )
     rowSize = rowSize+(borderSize*2);
     colSize = colSize+(borderSize*2);
     
-    % Get a value between 256 and 0 to reduce bedge detection bias
-    borderedIm(1:rowSize,1:colSize) = 128;
+    borderedIm = zeros(rowSize,colSize);
     borderedIm(borderSize+1:rowSize-borderSize,borderSize+1:colSize-borderSize) = origIm(:,:);
     borderedIm = uint8(borderedIm);
 end

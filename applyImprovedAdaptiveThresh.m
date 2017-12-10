@@ -11,7 +11,7 @@ function [ filteredIm ] = applyImprovedAdaptiveThresh( origIm, thresh )
         origIm = rgb2gray(origIm);
     end
     
-    filteredIm = origIm;
+    filteredIm = addImageBorder(origIm,2);
     [rowSize,colSize] = size(origIm);
     
     % using a 5x5 region, iterate over the image and find the edges...
@@ -50,5 +50,7 @@ function [ filteredIm ] = applyImprovedAdaptiveThresh( origIm, thresh )
     filteredIm = bwmorph(filteredIm, 'thin');
     filteredIm = bwmorph(filteredIm, 'clean');
     filteredIm = bwareaopen(filteredIm, 50);
+    
+    filteredIm = filteredIm(3:rowSize-2,3:colSize-2);
 end
 
