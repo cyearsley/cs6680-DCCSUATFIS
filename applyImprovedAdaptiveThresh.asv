@@ -14,7 +14,19 @@ function [ filteredIm ] = applyImprovedAdaptiveThresh( origIm, thresh )
         for jj = 3:colSize-2
             if origIm(ii,jj) >= thresh
                 imRegion = origIm(ii-2:ii+2,jj-2:jj+2);
-                if min(imRegion(:)) < thresh
+                capThreshCount = 0;
+                
+                % find the number of pixels in the selected region that
+                % meet the threshold requirement
+                for regionIndex =  1:numel(imRegion)
+                    if imRegion(regionIndex) < thresh
+                       capThreshCount = capThreshCount + 1; 
+                    end
+                end
+                
+                % if the number of elements that met the threshold
+                % requirement were low, set the
+                if abs(capThreshCount - numel(imRegion)) < numel(imRegion)
                     filteredIm(ii,jj) = 255;
                 else
                     filteredIm(ii,jj) = 0;
@@ -25,7 +37,8 @@ function [ filteredIm ] = applyImprovedAdaptiveThresh( origIm, thresh )
         end
     end
     
-    %filteredIm = bwmorph(filteredIm, 'thin');
     filteredIm = imopen(filteredIm,ones(2));
+    filteredIm = bwmorph(filteredIm, 'thin');
+    filteredIm = bwmorph(filteredIm, 'clean');
 end
 

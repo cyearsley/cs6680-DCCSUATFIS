@@ -10,6 +10,8 @@ function [ filteredIm ] = applyOriginalAdaptiveThresh( origIm, thresh )
     filteredIm = origIm;
     [rowSize,colSize] = size(origIm);
     
+    % As the proposed method indicated: iterate through each pixel, and
+    %   make the following checks:
     for ii = 2:rowSize-1
         for jj = 2:colSize-1
             
@@ -68,5 +70,6 @@ function [ filteredIm ] = applyOriginalAdaptiveThresh( origIm, thresh )
         end
     end
 
+    % Perform perform morphological thinning function.
     filteredIm = bwmorph(filteredIm, 'thin');
 end
