@@ -20,20 +20,11 @@ function [ filteredIm ] = applyImprovedAdaptiveThresh( origIm, thresh )
             
             if origIm(ii,jj) >= thresh
                 imRegion = origIm(ii-2:ii+2,jj-2:jj+2);
-                capThreshCount = 0;
-                
-                % find the number of pixels in the selected region that
-                % meet the threshold requirement
-                for regionIndex =  1:numel(imRegion)
-                    if imRegion(regionIndex) < thresh
-                       capThreshCount = capThreshCount + 1; 
-                    end
-                end
                 
                 % if the number of elements that met the threshold
                 %   requirement were low, then this pixel is probably an
                 %   edge.
-                if abs(capThreshCount - numel(imRegion)) < numel(imRegion)
+                if min(imRegion(:)) < thresh
                     filteredIm(ii,jj) = 255;
                 else
                     filteredIm(ii,jj) = 0;
