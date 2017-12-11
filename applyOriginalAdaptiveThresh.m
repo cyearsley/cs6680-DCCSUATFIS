@@ -12,6 +12,7 @@ function [ filteredIm ] = applyOriginalAdaptiveThresh( origIm, thresh )
     end
     
     filteredIm = addImageBorder(origIm,1);
+    origIm = filteredIm;
     [rowSize,colSize] = size(origIm);
     
     % As the proposed method indicated: iterate through each pixel, and

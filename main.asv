@@ -4,7 +4,6 @@ exampleIm3 = imread('ConcreteCrackImages/DSCN1319.JPG');
 exampleIm4 = imread('ConcreteCrackImages/DSCN1318.JPG');
 exampleIm5 = imread('ConcreteCrackImages/DSCN1372.JPG');
 exampleIm6 = imread('ConcreteCrackImages/DSCN1311.JPG');
-exampleIm7 = imread('ConcreteCrackImages/DSCN1324.JPG');
 riceIm = imread('Rice.jpg');
 cameraIm = imread('camera.png');
 
@@ -71,32 +70,12 @@ origConcIm3 = applyOriginalAdaptiveThresh(exampleIm1, 80);
 improvedConcIm3 = applyImprovedAdaptiveThresh(exampleIm1, 80);
 
 figure('Name', 'Concrete Comparison 3');
-subplot(1,2,1), imshow(origConcIm3);
+subplot(2,2,1), imshow(origConcIm3);
 title('Proposed Method');
-subplot(1,2,2), imshow(improvedConcIm3);
+subplot(2,2,2), imshow(improvedConcIm3);
 title('Improved Proposed Method');
-
-pause;
-
-origConcIm4 = applyOriginalAdaptiveThresh(exampleIm3, 80);
-improvedConcIm4 = applyImprovedAdaptiveThresh(exampleIm3, 80);
-
-figure('Name', 'Concrete Comparison 4');
-subplot(1,2,1), imshow(origConcIm4);
-title('Proposed Method');
-subplot(1,2,2), imshow(improvedConcIm4);
-title('Improved Proposed Method');
-
-pause;
-
-cannyConcrete = edge(rgb2gray(cameraIm),'Canny', 0.3);
-improvedConcIm5 = applyImprovedAdaptiveThresh(cameraIm, 90);
-
-figure('Name', 'Concrete Comparison 5');
-subplot(1,2,1), imshow(improvedConcIm5);
-title('Improved Proposed Method');
-subplot(1,2,2), imshow(cannyConcrete);
-title('Canny Method');
+subplot(2,2,3), imshow(exampleIm1);
+title('Original Image');
 
 pause;
 
