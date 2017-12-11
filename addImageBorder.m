@@ -9,7 +9,8 @@ function [ borderedIm ] = addImageBorder( origIm, borderSize )
     rowSize = rowSize+(borderSize*2);
     colSize = colSize+(borderSize*2);
     
-    borderedIm = zeros(rowSize,colSize);
+    %borderedIm = zeros(rowSize,colSize);
+    borderedIm(1:rowSize,1:colSize) = 255;
     borderedIm(borderSize+1:rowSize-borderSize,borderSize+1:colSize-borderSize) = origIm(:,:);
     borderedIm = uint8(borderedIm);
 end
