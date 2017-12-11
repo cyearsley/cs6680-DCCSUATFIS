@@ -68,7 +68,7 @@ title('Proposed Method');
 pause;
 
 origConcIm3 = applyOriginalAdaptiveThresh(exampleIm1, 80);
-improvedConcIm3 = applyImprovedAdaptiveThresh(exampleIm1, 80);
+improvedConcIm3 = detectConcreteCracks(exampleIm1);
 
 figure('Name', 'Concrete Comparison 3');
 subplot(1,2,1), imshow(origConcIm3);
@@ -79,7 +79,7 @@ title('Improved Proposed Method');
 pause;
 
 origConcIm4 = applyOriginalAdaptiveThresh(exampleIm3, 80);
-improvedConcIm4 = applyImprovedAdaptiveThresh(exampleIm3, 80);
+improvedConcIm4 = detectConcreteCracks(exampleIm3);
 
 figure('Name', 'Concrete Comparison 4');
 subplot(1,2,1), imshow(origConcIm4);
