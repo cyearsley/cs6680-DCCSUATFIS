@@ -1,7 +1,0 @@
-function [ borderedIm ] = addImageBorder( origIm, borderSize )
-    % Adds a border to the image of size <borderSize>
-
-    %@param origIm - the original
-
-end
-
