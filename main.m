@@ -3,7 +3,6 @@ exampleIm2 = imread('ConcreteCrackImages/DSCN1352.JPG');
 exampleIm3 = imread('ConcreteCrackImages/DSCN1319.JPG');
 exampleIm4 = imread('ConcreteCrackImages/DSCN1318.JPG');
 exampleIm5 = imread('ConcreteCrackImages/DSCN1372.JPG');
-exampleIm6 = imread('ConcreteCrackImages/DSCN1311.JPG');
 exampleIm7 = imread('ConcreteCrackImages/DSCN1324.JPG');
 riceIm = imread('Rice.jpg');
 cameraIm = imread('camera.png');
